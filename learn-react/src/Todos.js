@@ -8,7 +8,7 @@ function Todos (){
         { id: 1, Task: "Amine Salmi", completed: false },
         { id: 2, Task: "Ziad El Amrani", completed: true },
         { id: 3, Task: "Nada Bouyahya", completed: false }
-    ];zzzz
+    ];
     const [todos, setTodos] = useState(initialTodos);
     const addTodos = newTodosText => {
         setTodos([...todos, { id: 4, Task: newTodosText, completed: false }]);
