@@ -1,14 +1,17 @@
 import React from 'react'
 
- const SingleTodo = (props) => {
+ const SingleTodo = ({ Task, id, removeTodo }) => {
   return (
     <div>
-        {props.todos.map(todo => (
-            <ul key={todo.id}>  
-                 <li>{todo.Task}</li>
+        
+            <ul>  
+                 <li>{Task}</li>
+                 <button onClick={() => removeTodo(id)}>Delete</button>
+                 <button>Edit</button>
             </ul>
+            
            
-        ))}
+
         
     </div>
   )

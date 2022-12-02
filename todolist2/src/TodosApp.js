@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TodosList from "./TodosList";
 import TodoForm from "./TodosForm";
-
-
+const {v4: uuidv4} = require('uuid')
+ 
 function Todos (){
     const initialTodos = [
         { id: 1, Task: "Amine Salmi", completed: false },
@@ -11,13 +11,18 @@ function Todos (){
     ];
     const [todos, setTodos] = useState(initialTodos);
     const addTodos = newTodosText => {
-        setTodos([...todos, { id: 4, Task: newTodosText, completed: false }]);
+        setTodos([...todos, { id: uuidv4(), Task: newTodosText, completed: false }]);
 
     };
+
+    const removeTodo = todoId => {
+        const updatedTodo = todos.filter(todo =>todo.id !== todoId);
+        setTodos(updatedTodo);
+    }
     return (
         <div>
             <TodoForm addTodos={addTodos} />
-            <TodosList todos={todos} />
+            <TodosList todos={todos} removeTodo={removeTodo}/>
             
            
         </div>
